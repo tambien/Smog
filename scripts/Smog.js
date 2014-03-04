@@ -1,0 +1,8 @@
+
+
+
+var Smog = function(){
+	return {
+
+	}
+}();
