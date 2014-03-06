@@ -5,11 +5,34 @@
 	
 	<link rel="stylesheet" type="text/css" href="./style/smog.css">
 
+	<!-- DEPS -->
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src='./scripts/deps/TERP.js'></script>
+	<script type="text/javascript" src='./scripts/deps/RAND.js'></script>
+	<script type="text/javascript" src='./scripts/deps/tuna.js'></script>
+
+	<!-- APP -->
+	<script type="text/javascript" src='./scripts/Smog.js'></script>
+	<script type="text/javascript" src='./scripts/Sunset.js'></script>
+	<script type="text/javascript" src='./scripts/Particles.js'></script>
+	<script type="text/javascript" src='./scripts/Audio.js'></script>
+	<script type="text/javascript" src='./scripts/Actors.js'></script>
 </head>
 <body>
-	<div id='Background'>
-		<canvas></canvas>
+	<div id="Sunset">
+		<div id='Background'></div>
+		<div id='Gradient'></div>	
+	</div>	
+	<div id='Particles'></div>
+	<div id='Car'>
+		<div id='Image'></div>	
+		<div id='Exhaust'></div>	
+	</div>
+	<div id='Person'>
+		<div id='Image'></div>	
+		<div id='Intake'>
+			<div id='Mouth'></div>	
+		</div>	
 	</div>
 </body>
 </html>

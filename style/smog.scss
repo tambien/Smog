@@ -1,0 +1,159 @@
+@mixin backgroundGradient ($color0, $color1){
+	background: -webkit-linear-gradient($color0, $color1);  
+	background: -moz-linear-gradient($color0, $color1);  
+	background: -o-linear-gradient($color0, $color1);  
+	background: linear-gradient($color0, $color1);  
+	background-repeat: repeat;  
+}
+
+@mixin transition($property){
+	@include transitionAndTime($property, 1s);
+}
+
+@mixin transitionAndTime($property, $time){
+	-webkit-transition: $property $time linear;  
+	-moz-transition: $property $time linear;  
+	-o-transition: $property $time linear;  
+	transition: $property $time linear;  
+}
+
+/*=============================================================================
+	BACKGROUND
+=============================================================================*/
+
+#Sunset {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #553030;
+}
+
+#Background {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #8ED6FF;
+	@include transition(opacity);
+}
+
+#Gradient{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	@include transition(all);
+	@include backgroundGradient(rgb(57, 57, 57), rgba(0, 0, 0, 0));
+	-webkit-background-size: 100% 100%;  
+	-moz-background-size: 100% 100%;  
+	background-size: 100% 100%;  
+	opacity: .5;
+}
+
+
+/*=============================================================================
+	PARTICLES
+=============================================================================*/
+
+#Particles {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#Particles .Particle {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+	opacity: 1;
+	background-color: gray;
+	border-radius: 10px;
+	transform: translate(0px, 0px, 0px);
+	-webkit-transform: translate(0px, 0px, 0px);
+	z-index: 10;
+}
+
+/*=============================================================================
+	CAR
+=============================================================================*/
+
+#Car {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 400px;
+	width: 150px;
+}
+
+#Car #Image {
+	position: absolute;
+	right: 0px;
+	height: 400px;
+	width: 150px;
+	background: url("../images/driving-car.png");
+	background-size: 100% 100%;
+}
+
+#Car #Exhaust {
+	position: absolute;
+	right: 5px;
+	bottom: 40px;
+	height: 10px;
+	width: 10px;
+}
+
+/*=============================================================================
+	PERSON
+=============================================================================*/
+
+#Person {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	height: 350px;
+	width: 150px;
+	cursor: pointer;
+}
+
+#Person #Image {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	height: 350px;
+	width: 130px;
+	background: url("../images/person.png");
+	background-size: 100% 100%;
+}
+
+#Person #Intake {
+	position: absolute;
+	left: 51px;
+	top: 39px;
+	height: 10px;
+	width: 10px;
+}
+
+#Person #Intake #Mouth{
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	border-radius: 8px;
+	-webkit-transform: scale(1, 0);
+	transform: scale(1, 0);
+	@include transitionAndTime(all, 1s);
+}
+
+
+#Person #Intake #Mouth.Open{
+	-webkit-transform: scale(1, 1);
+	transform: scale(1, 1);
+	@include transitionAndTime(all, .1s);
+}
