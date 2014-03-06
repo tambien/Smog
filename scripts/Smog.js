@@ -10,6 +10,10 @@ var Smog = function(){
 		Smog.Sunset.initialize();
 		Smog.Particles.initialize();
 		Smog.Audio.initialize();
+		Smog.Audio.loaded = loaded;
+		Smog.Interface.initialize();
+		Smog.Interface.playClicked = play;
+		Smog.Interface.stopClicked = stop;
 
 		//the actors
 		Smog.Human.initialize();
@@ -56,11 +60,60 @@ var Smog = function(){
 		Smog.Particles.car();
 	}
 
+	function loaded(){
+		Smog.Interface.loaded();
+	}
+
+	function play(){
+		Smog.Audio.play();
+	}
+
+	function stop(){
+		Smog.Audio.stop();
+	}
+
 	return {
 		initialize : init,
 		particleCount : 15,
 	}
 }();
+
+
+Smog.Interface = (function(){
+
+	var $playButton;
+
+	function init(){
+
+	}
+
+	function clicked(e){
+		e.preventDefault();
+		$("#Play").removeClass("Visible");
+		Smog.Interface.playClicked();
+		$("#Stop").addClass("Visible");
+	}
+
+	function loaded(){
+		$("#Play").addClass("Visible");
+		$("#Play").click(clicked);
+		$("#Stop").click(stop);
+		$("#Loading").removeClass("Visible");
+	}
+
+	function stop(){
+		$("#Play").addClass("Visible");
+		$("#Stop").removeClass("Visible");
+		Smog.Interface.stopClicked();
+	}
+
+	return {
+		initialize: init,
+		playClicked : function(){},
+		stopClicked : function(){},
+		loaded : loaded
+	}
+})()
 
 
 // shim layer with setTimeout fallback

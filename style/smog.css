@@ -1,3 +1,8 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px; }
+
 /*=============================================================================
 	BACKGROUND
 =============================================================================*/
@@ -70,14 +75,14 @@
 #Car {
   position: absolute;
   left: 0px;
-  bottom: 0px;
-  height: 400px;
+  bottom: 3px;
+  height: 230px;
   width: 150px; }
 
 #Car #Image {
   position: absolute;
   right: 0px;
-  height: 400px;
+  height: 230px;
   width: 150px;
   background: url("../images/driving-car.png");
   background-size: 100% 100%; }
@@ -135,3 +140,74 @@
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
   transition: all 0.1s linear; }
+
+/*=============================================================================
+	INTERFACE
+=============================================================================*/
+#Interface * {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear; }
+
+#Interface .Visible {
+  opacity: 1;
+  pointer-events: visibleFill;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear; }
+
+#Loading {
+  position: absolute;
+  width: 300px;
+  height: 260px;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -130px;
+  line-height: 190px;
+  font-size: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  color: #ad0909;
+  background: url("../images/yeild.png");
+  background-size: 100% 100%; }
+
+#Play {
+  background-color: green;
+  border-radius: 10px;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -50px;
+  text-align: center;
+  line-height: 100px;
+  font-family: sans-serif;
+  color: white;
+  font-size: 40px;
+  border: solid white 4px;
+  cursor: pointer; }
+
+#Play:active {
+  color: black; }
+
+#Stop {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
+  color: white;
+  top: 4px;
+  right: 4px;
+  position: absolute;
+  text-align: center;
+  font-family: sans-serif;
+  cursor: pointer;
+  background: url("../images/stop.png");
+  background-size: 100% 100%; }

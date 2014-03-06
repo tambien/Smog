@@ -45,7 +45,7 @@ Smog.Particles = function(){
 
 	function removeParticle(){
 		var randX = RAND.int(intakePosition.x - 150, intakePosition.x - 200);
-		var randY = RAND.int(intakePosition.y - 100, intakePosition.y - 200);
+		var randY = RAND.int(intakePosition.y - 50, intakePosition.y - 150);
 		var part = new Smog.Particle({x: randX, y: randY}, intakePosition, false);
 		particles.push(part);
 	}

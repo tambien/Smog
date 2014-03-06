@@ -18,7 +18,7 @@ Smog.Audio = (function(){
 	function init(){
 		//make the player
 		gotchPlayer = new Smog.Audio.Player("./audio/gotch.mp3", audioContext, function(){
-			Smog.Audio.loaded = true;
+			Smog.Audio.loaded();
 		});
 		distortion = new Smog.Audio.Distortion(tuna, audioContext);
 
@@ -32,6 +32,10 @@ Smog.Audio = (function(){
 		gotchPlayer.loop(audioContext);
 	}
 
+	function stop(){
+		gotchPlayer.stop(audioContext);
+	}
+
 	function slowUpdate(particleCount){
 		distortion.dryness(TERP.exp(particleCount, 0, 100, 0, 1));
 	}
@@ -41,7 +45,8 @@ Smog.Audio = (function(){
 		context : audioContext,
 		slowUpdate : slowUpdate,
 		play : play,
-		loaded : false,
+		stop: stop,
+		loaded : function(){},
 	}
 })();
 
@@ -121,10 +126,12 @@ Smog.Audio.Distortion = function(tuna, audioContext){
 	//dry channel
 	this.input.connect(this.dry);
 	this.dry.connect(this.output);
+	this.dry.gain.value = 1;
 	//wet connection
 	this.input.connect(this.distortion.input);
 	this.distortion.connect(this.wet);
 	this.wet.connect(this.output);
+	this.wet.gain.value = 0;
 
 	this.audioContext = audioContext;
 }
