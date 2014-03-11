@@ -3,7 +3,7 @@
 =============================================================================*/
 Smog.Human = (function(){
 
-	var humanKey = 76; //L
+	var humanKey = 73; //I
 
 	function init(){
 		//bind all of the events
@@ -15,17 +15,20 @@ Smog.Human = (function(){
 		});
 		$(document).keyup(function(e){
 			if (e.which === humanKey){
+				e.preventDefault();
 				clickEnd();
 			}
 		});
 		//bind all of the events
-		$("#Person").mousedown(function(e){
+		$("#Person").bind("mousedown touchstart", function(e){
 			e.preventDefault();
 			clickStart();
 		});
-		$("#Person").mouseup(function(e){
+		$("#Person").bind("mouseup touchend", function(e){
+			e.preventDefault();
 			clickEnd();
 		});
+
 	}
 
 	//the interval
@@ -42,6 +45,7 @@ Smog.Human = (function(){
 		clearInterval(fireInterval);
 		fireInterval = -1;
 		$("#Mouth").removeClass("Open");
+		Smog.Human.clickEnd();
 	}
 
 	//trigger the click action
@@ -51,7 +55,8 @@ Smog.Human = (function(){
 
 	return {
 		initialize : init,
-		clicked : function(){}
+		clicked : function(){},
+		clickEnd : function(){}
 	}
 })();
 
@@ -61,7 +66,7 @@ Smog.Human = (function(){
 =============================================================================*/
 Smog.Car = (function(){
 
-	var carKey = 83; //S
+	var carKey = 69; //E
 
 	function init(){
 		//bind all of the events
@@ -99,6 +104,7 @@ Smog.Car = (function(){
 	function clickEnd(){
 		clearInterval(fireInterval);
 		fireInterval = -1;
+		Smog.Car.clickEnd();
 	}
 
 	//trigger the click action
@@ -108,6 +114,7 @@ Smog.Car = (function(){
 
 	return {
 		initialize : init,
-		clicked : function(){}
+		clicked : function(){},
+		clickEnd : function(){}
 	}
 })();

@@ -4,6 +4,11 @@
 	<title>Smog - eat it up</title>
 	
 	<link rel="stylesheet" type="text/css" href="./style/smog.css">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="viewport" content="user-scalable=no"/>
 
 	<!-- DEPS -->
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -35,9 +40,13 @@
 		</div>	
 	</div>
 	<div id='Interface'>
+		<div id="ExhaustInstructions" class='Visible Instruction'>EXHAUST: PRESS and HOLD "e"</div>
+		<div id="IntakeInstructions" class='Visible Instruction'>INHALE: PRESS and HOLD "i"</div>
 		<div id='Play'>PLAY</div>
 		<div id='Loading' class='Visible'>LOADING</div>
 		<div id='Stop'>STOP</div>
+		<div id="SoClean" class='Affirm'>SO CLEAN!</div>
+		<div id="SoDirty" class='Affirm'>SO DIRTY!</div>
 	</div>
 </body>
 </html>
