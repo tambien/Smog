@@ -187,11 +187,11 @@ Smog.Audio.Filter = function(audioContext){
 	this.output = audioContext.createGain();
 	//the filters
 	this.carFilter = audioContext.createBiquadFilter();
-	this.carFilter.type = 0;
+	this.carFilter.type = "lowpass";
 	this.carFilter.frequency.value = 250;
 	this.carFilter.Q.value = 10;
 	this.humanFilter = audioContext.createBiquadFilter();
-	this.humanFilter.type = 1;
+	this.humanFilter.type = "highpass";
 	this.humanFilter.frequency.value = 1600;
 	this.humanFilter.Q.value = 10;
 	//the gains
